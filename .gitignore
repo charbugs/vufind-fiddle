@@ -19,5 +19,5 @@ module/VuFind/tests/.phpunit.result.cache
 node_modules
 public/swagger-ui
 env.bat
-/local/httpd-vufind.conf
+/local/httpd-vufind.conf*
 /local/import

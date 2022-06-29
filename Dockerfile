@@ -7,13 +7,14 @@ RUN apt-get install -y php php-mbstring php-pear php-dev php-gd php-intl php-jso
 RUN apt-get install -y composer
 
 WORKDIR /tmp
+# Some of the node dependencies can only be compiled by this specific node version
 RUN wget https://nodejs.org/download/release/v17.9.1/node-v17.9.1-linux-x64.tar.xz
 RUN tar xf node-v17.9.1-linux-x64.tar.xz
 RUN ln -s /tmp/node-v17.9.1-linux-x64/bin/* /usr/local/bin
 
 RUN echo "[xdebug]" >> /etc/php/7.4/cli/php.ini
 RUN echo "xdebug.mode=debug" >> /etc/php/7.4/cli/php.ini
-# xdebug.client_host must be set on container start
+# xdebug.client_host must be set to the docker bride ip. This must be done in docker-run.sh
 RUN echo "xdebug.client_port=9003" >> /etc/php/7.4/cli/php.ini
 RUN echo "xdebug.start_with_request=yes" >> /etc/php/7.4/cli/php.ini
 RUN chmod 666 /etc/php/7.4/cli/php.ini
