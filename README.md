@@ -16,3 +16,5 @@ $ ./import-marc.sh test/data/journals.mrc
 
 http://localhost:8080
 http://localhost:8983/solr/#
+
+There is also an VSCode debugger launch script that should work out of the box.
