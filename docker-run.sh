@@ -10,7 +10,7 @@ docker run \
     composer install --no-interaction && \
     php install.php --non-interactive &&  \
     npm install node-sass@7.0.1 grunt-sass@3.1.0 && \
-    echo xdebug.client_host=10.1.0.1 >> /etc/php/7.4/cli/php.ini && \
-    ./solr/vendor/bin/solr start && \
-    ./solr/vendor/bin/solr create -c biblio && \
-    php -S 0.0.0.0:8080 public/index.php"
+    echo xdebug.client_host=172.17.0.1 >> /etc/php/7.4/cli/php.ini && \
+    ./solr/vendor/bin/solr start
+    ln -s /vufind/public/index.php index.php
+    php -S 0.0.0.0:8080 -t ."

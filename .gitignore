@@ -21,3 +21,4 @@ public/swagger-ui
 env.bat
 /local/httpd-vufind.conf*
 /local/import
+index.php
