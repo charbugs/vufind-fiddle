@@ -11,6 +11,7 @@ docker run \
     php install.php --non-interactive &&  \
     npm install node-sass@7.0.1 grunt-sass@3.1.0 && \
     echo xdebug.client_host=172.17.0.1 >> /etc/php/7.4/cli/php.ini && \
-    ./solr/vendor/bin/solr start
+    ./solr.sh start
+    ./import-marc.sh tests/data/journals.mrc
     ln -s /vufind/public/index.php index.php
     php -S 0.0.0.0:8080 -t ."
